@@ -4,8 +4,13 @@ const User = require("./config");
 const app = express();
 
 app.use(express.json())
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://auto-sync-poc-fe.vercel.app',
+];
+
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: "*",
 }));
   app.post("/create", async (req, res) => {
       try{
